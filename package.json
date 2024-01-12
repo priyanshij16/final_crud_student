@@ -1,0 +1,60 @@
+{
+    "name": "new_nodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "type": "module",
+        "start": "node --experimental-worker dist/app.js",
+        "build": "npm run build-ts && npm run copy-files",
+        "dev": "nodemon --experimental-worker dist/app.js",
+        "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css dist/",
+        "build-ts": "tsc",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/faker": "^6.6.9",
+        "babel-jest": "^29.7.0",
+        "body-parser": "^1.20.2",
+        "compression": "^1.7.4",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-validator": "^7.0.1",
+        "helmet": "^7.1.0",
+        "metadata": "^0.1.0",
+        "moment": "^2.30.1",
+        "node": "^21.2.0",
+        "pg": "^8.11.3",
+        "pg-hstore": "^2.3.4",
+        "postgres": "^3.4.3",
+        "reflect": "^0.1.3",
+        "sequelize": "^6.35.2",
+        "sequelize-cli": "^6.6.2",
+        "typeorm": "^0.3.19",
+        "umzug": "2.3.0",
+        "uuid": "^9.0.1",
+        "uuidv4": "^6.2.13",
+        "v4": "^0.0.1",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.10.6",
+        "@types/pg": "^8.10.9",
+        "nodemon": "^3.0.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.3.3"
+    },
+    "mikro-orm": {
+        "UseTsNode": true,
+        "configPaths": [
+            "./src/mikro-orm.config.ts",
+            "./dist/mikro-orm.config.js"
+        ]
+    }
+}
